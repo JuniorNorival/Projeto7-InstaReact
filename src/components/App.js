@@ -1,10 +1,10 @@
-import Topo from './Topo'
-import Stories from './Stories'
+import Navbar from './Navbar'
+import Corpo from './Corpo'
 function App (){
     return(
     <div>
-        <Topo />
-        <Stories />
+        <Navbar />
+        <Corpo />
     </div>
     
     )
