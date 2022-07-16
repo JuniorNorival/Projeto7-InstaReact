@@ -1,4 +1,7 @@
+import React from 'react'
+
 function Post() {
+    const [name, setName] = React.useState("heart-outline")
     const postImg = [
         {
             post: "assets/img/gato-telefone.svg",
@@ -6,9 +9,14 @@ function Post() {
             userimg: "assets/img/meowed.svg",
             user: "meowed",
             option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
-            action: <div><ion-icon name="heart-outline"></ion-icon>
-                <ion-icon name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon></div>,
+            action:
+                <div>
+                    <ion-icon name={name} onClick={() => {
+                        setName("heart")
+                    }}></ion-icon>
+                    <ion-icon name="chatbubble-outline"></ion-icon>
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </div>,
             action1: <ion-icon name="bookmark-outline"></ion-icon>,
             likeImg: "assets/img/respondeai.svg",
             likeText: <p>Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong></p>
@@ -19,9 +27,14 @@ function Post() {
             userimg: "assets/img/barked.svg",
             user: "barked",
             option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
-            action: <div><ion-icon name="heart-outline"></ion-icon>
-                <ion-icon name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon></div>,
+            action:
+                <div>
+                    <ion-icon name={name} onClick={() => {
+                        setName("heart")
+                    }}></ion-icon>
+                    <ion-icon name="chatbubble-outline"></ion-icon>
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </div>,
             action1: <ion-icon name="bookmark-outline"></ion-icon>,
             likeImg: "assets/img/respondeai.svg",
             likeText: <p>Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong></p>
@@ -32,19 +45,26 @@ function Post() {
             userimg: "assets/img/barked.svg",
             user: "barked",
             option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
-            action: <div><ion-icon name="heart-outline"></ion-icon>
-                <ion-icon name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon></div>,
+            action:
+                <div>
+                    <ion-icon name={name} onClick={() => {
+                        setName("heart")
+                    }}></ion-icon>
+                    <ion-icon name="chatbubble-outline"></ion-icon>
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </div>,
             action1: <ion-icon name="bookmark-outline"></ion-icon>,
             likeImg: "assets/img/respondeai.svg",
             likeText: <p>Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong></p>
         }
     ]
 
+    
+
     return (
         <div class="posts">
             {postImg.map((post) => (
-                <div class="post">
+                <div class="post" >
                     <div class="topo">
                         <div class="usuario">
                             <img src={post.userimg} />
@@ -54,9 +74,12 @@ function Post() {
                             {post.option}
                         </div>
                     </div>
-                    <div class="conteudo">
+                    <div class="conteudo"
+                    >
                         {post.video}
-                        <img src={post.post} />
+                        <img onClick={() => {
+                            setName ('heart') 
+                        }} src={post.post} />
                     </div>
                     <div class="fundo">
                         <div class="acoes">
@@ -82,6 +105,8 @@ function Post() {
     )
 
 }
+
+
 
 
 export default Post
