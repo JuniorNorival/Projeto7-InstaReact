@@ -1,142 +1,98 @@
 import React from 'react'
-
-function Post() {
+function Post(props) {
     const [name, setName] = React.useState("heart-outline");
-    const postImg = [
-        {
-            post: "assets/img/gato-telefone.svg",
-            video: "",
-            userimg: "assets/img/meowed.svg",
-            user: "meowed",
-            option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
-            action:
-                <div>
-                    <ion-icon name={name} onClick={() => {
-                        if(name === "heart"){
-                            setName("heart-outline")
-                            
-                        }else {
-                            setName("heart")
-                           
-                        }
-                    }}></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </div>,
-            action1: <ion-icon name="bookmark-outline"></ion-icon>,
-            likeImg: "assets/img/respondeai.svg",
-            likeText: <p>Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong></p>
-        },
-        {
-            post: "assets/img/dog.svg",
-            video: "",
-            userimg: "assets/img/barked.svg",
-            user: "barked",
-            option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
-            action:
-                <div>
-                    <ion-icon name={name} onClick={() => {
-                        if(name === "heart"){
-                            setName("heart-outline")
-                           
-                        }else {
-                            setName("heart")
-                            
-                        }
-                    }}></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </div>,
-            action1: <ion-icon name="bookmark-outline"></ion-icon>,
-            likeImg: "assets/img/respondeai.svg",
-            likeText: <p>Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong></p>
-        },
-        {
-            post: "",
-            video: <video onClick={() => {
-                if(name === "heart"){
-                    setName("heart-outline")
-                    console.log('entrei2')
-                }else {
-                    setName("heart")
-                    console.log('entrei1')
-                }
-            }} controls="controls" autoplay muted loop>
-                <source src="./imagens/video.mp4" type="video/mp4" />
-                <source src="./imagens/video.ogv" type="video/ogv" /></video>,
-            userimg: "assets/img/barked.svg",
-            user: "barked",
-            option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
-            action:
-                <div>
-                    <ion-icon name={name} onClick={() => {
-                        if(name === "heart"){
-                            setName("heart-outline")
-                            
-                        }else {
-                            setName("heart")
-                           
-                        }
-                    }}></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </div>,
-            action1: <ion-icon name="bookmark-outline"></ion-icon>,
-            likeImg: "assets/img/respondeai.svg",
-            likeText: <p>Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong></p>
-        }
-    ]
-
-    
-
     return (
-        <div class="posts">
-            {postImg.map((post) => (
-                <div class="post" >
-                    <div class="topo">
-                        <div class="usuario">
-                            <img src={post.userimg} />
-                            {post.user}
-                        </div>
-                        <div class="acoes">
-                            {post.option}
-                        </div>
-                    </div>
-                    <div class="conteudo"
-                    >
-                        {post.video}
-                        <img 
-                        onClick={() => {
-                        if(name === "heart"){
-                            setName("heart-outline")
-                            
-                        }else {
-                            setName("heart")
-                            
-                        }
-                    }} src={post.post} />
-                    </div>
-                    <div class="fundo">
-                        <div class="acoes">
-                            <div>
-                                {post.action}
-                            </div>
-                            <div>
-                                {post.action1}
-                            </div>
-                        </div>
+        <div class="post" >
+            <div class="topo">
+                <div class="usuario">
+                    <img src={props.imgUser} />
+                    {props.user}
+                </div>
+                <div class="acoes">
+                    <ion-icon name='ellipsis- horizontal'></ion-icon>
+                </div>
+            </div>
+            <div class="conteudo">
 
-                        <div class="curtidas">
-                            <img src={post.likeImg} />
-                            <div class="texto">
-                                {post.likeText}
-                            </div>
-                        </div>
+                <img
+                    onClick={() => {
+
+                        setName("heart")
+                    }} src={props.img} />
+            </div>
+            <div class="fundo">
+                <div class="acoes">
+                    <div>
+                        <ion-icon name={name} onClick={() => {
+                            if (name === "heart") {
+                                setName("heart-outline")
+
+                            } else {
+                                setName("heart")
+
+                            }
+                        }}></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
+                    </div>
+                    <div>
+                        <ion-icon name="bookmark-outline"></ion-icon>
                     </div>
                 </div>
-            ))}
-        </div>
 
+                <div class="curtidas">
+                    <img src={props.likeImg} />
+                    <div class="texto">
+                        Curtido por <strong>{props.userLike}</strong> e <strong>outras {props.qtdLike} pessoas</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+function Posts() {
+    const postArray = [
+        {
+            img: "assets/img/gato-telefone.svg",
+            video: "",
+            imgUser: "assets/img/meowed.svg",
+            user: "meowed",
+            likeImg: "assets/img/respondeai.svg",
+            userLike: "respondeai",
+            qtdLike: "98.999"
+        },
+        {
+            img: "assets/img/dog.svg",
+            video: "",
+            imgUser: "assets/img/barked.svg",
+            user: "barked",
+            likeImg: "assets/img/respondeai.svg",
+            userLike: "respondeai",
+            qtdLike: "98.999",
+        },
+        {
+            img: "assets/img/eso2105a.webp",
+            imgUser: "assets/img/download.png",
+            user: "nasa",
+            likeImg: "assets/img/respondeai.svg",
+            userLike: "respondeai",
+            qtdLike: "98.999",
+        }
+    ]
+    return (
+        postArray.map(post => (
+            <div class='Posts'>
+                <Post
+                    img={post.img}
+                    video={post.video}
+                    imgUser={post.imgUser}
+                    user={post.user}
+                    likeImg={post.likeImg}
+                    userLike={post.userLike}
+                    qtdLike={post.qtdLike} />
+            </div>
+        ))
+       
     )
 
 }
@@ -144,4 +100,4 @@ function Post() {
 
 
 
-export default Post
+export default Posts

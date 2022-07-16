@@ -189,6 +189,7 @@ body {
 .post .conteudo img,
 .post .conteudo video {
   width: 100%;
+  
 }
 .post .conteudo img:hover,
 .post .conteudo video:hover {
@@ -326,7 +327,9 @@ body {
 ion-icon[name="heart"] {
   color: red;
 }
-
+.usuario img {
+  border-radius: 50px;
+}
 
 @media (max-width: 935px) {
   .sidebar {
