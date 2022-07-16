@@ -12,7 +12,6 @@ function Stories() {
 
     return (
         <div class="stories">
-
             {imgstory.map(story => (
                 <div class="story">
                     <div class="imagem">
@@ -22,16 +21,12 @@ function Stories() {
                         <p>{story.user}</p>
                     </div>
                 </div>))}
-
-
+            <div class="setinha">
+                <ion-icon name="chevron-forward-circle"></ion-icon>
+            </div>
         </div>
+
     )
-
-
-
-
-
-
 
 }
 
