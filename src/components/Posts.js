@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Post() {
-    const [name, setName] = React.useState("heart-outline")
+    const [name, setName] = React.useState("heart-outline");
     const postImg = [
         {
             post: "assets/img/gato-telefone.svg",
@@ -12,7 +12,13 @@ function Post() {
             action:
                 <div>
                     <ion-icon name={name} onClick={() => {
-                        setName("heart")
+                        if(name === "heart"){
+                            setName("heart-outline")
+                            
+                        }else {
+                            setName("heart")
+                           
+                        }
                     }}></ion-icon>
                     <ion-icon name="chatbubble-outline"></ion-icon>
                     <ion-icon name="paper-plane-outline"></ion-icon>
@@ -30,7 +36,13 @@ function Post() {
             action:
                 <div>
                     <ion-icon name={name} onClick={() => {
-                        setName("heart")
+                        if(name === "heart"){
+                            setName("heart-outline")
+                           
+                        }else {
+                            setName("heart")
+                            
+                        }
                     }}></ion-icon>
                     <ion-icon name="chatbubble-outline"></ion-icon>
                     <ion-icon name="paper-plane-outline"></ion-icon>
@@ -41,14 +53,30 @@ function Post() {
         },
         {
             post: "",
-            video: <video controls="controls" autoplay muted loop><source src="./imagens/video.mp4" type="video/mp4" /><source src="./imagens/video.ogv" type="video/ogv" /></video>,
+            video: <video onClick={() => {
+                if(name === "heart"){
+                    setName("heart-outline")
+                    console.log('entrei2')
+                }else {
+                    setName("heart")
+                    console.log('entrei1')
+                }
+            }} controls="controls" autoplay muted loop>
+                <source src="./imagens/video.mp4" type="video/mp4" />
+                <source src="./imagens/video.ogv" type="video/ogv" /></video>,
             userimg: "assets/img/barked.svg",
             user: "barked",
             option: <ion-icon name='ellipsis- horizontal'></ion-icon>,
             action:
                 <div>
                     <ion-icon name={name} onClick={() => {
-                        setName("heart")
+                        if(name === "heart"){
+                            setName("heart-outline")
+                            
+                        }else {
+                            setName("heart")
+                           
+                        }
                     }}></ion-icon>
                     <ion-icon name="chatbubble-outline"></ion-icon>
                     <ion-icon name="paper-plane-outline"></ion-icon>
@@ -77,9 +105,16 @@ function Post() {
                     <div class="conteudo"
                     >
                         {post.video}
-                        <img onClick={() => {
-                            setName ('heart') 
-                        }} src={post.post} />
+                        <img 
+                        onClick={() => {
+                        if(name === "heart"){
+                            setName("heart-outline")
+                            
+                        }else {
+                            setName("heart")
+                            
+                        }
+                    }} src={post.post} />
                     </div>
                     <div class="fundo">
                         <div class="acoes">
