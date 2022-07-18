@@ -17,7 +17,8 @@ function Post(props) {
                     onClick={() => {
                         setName("heart")
                     }} src={props.img} />
-                <div onClick={() => {
+                    
+                <div onDoubleClick={() => {
                     setName("heart")
                 }} >{props.video}</div>
 
