@@ -13,12 +13,14 @@ function Post(props) {
                 </div>
             </div>
             <div class="conteudo">
-
                 <img
                     onClick={() => {
-
                         setName("heart")
                     }} src={props.img} />
+                <div onClick={() => {
+                    setName("heart")
+                }} >{props.video}</div>
+
             </div>
             <div class="fundo">
                 <div class="acoes">
@@ -26,10 +28,8 @@ function Post(props) {
                         <ion-icon name={name} onClick={() => {
                             if (name === "heart") {
                                 setName("heart-outline")
-
                             } else {
                                 setName("heart")
-
                             }
                         }}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
@@ -50,6 +50,7 @@ function Post(props) {
         </div>
     )
 }
+
 function Posts() {
     const postArray = [
         {
@@ -71,7 +72,13 @@ function Posts() {
             qtdLike: "98.999",
         },
         {
-            img: "assets/img/eso2105a.webp",
+            img: "",
+            video:
+                <video controls="controls" autoplay muted loop>
+                    <source src="assets/video/video.mp4" type="video/mp4" />
+                    <source src="assets/video/video.ogv" type="video/ogv" />
+                </video>
+            ,
             imgUser: "assets/img/download.png",
             user: "nasa",
             likeImg: "assets/img/respondeai.svg",
@@ -92,7 +99,7 @@ function Posts() {
                     qtdLike={post.qtdLike} />
             </div>
         ))
-       
+
     )
 
 }
